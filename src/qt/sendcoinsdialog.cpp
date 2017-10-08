@@ -1,6 +1,6 @@
 // Copyright (c) 2011-2016 The Bitcoin developers
 // Copyright (c) 2014-2017 The Dash developers
-// Copyright (c) 2015-2017 The SibCoin developers
+// Copyright (c) 2015-2017 The AltynClassic developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -870,7 +870,7 @@ void SendCoinsDialog::coinControlChangeEdited(const QString& text)
         }
         else if (!addr.IsValid()) // Invalid address
         {
-            ui->labelCoinControlChangeLabel->setText(tr("Warning: Invalid Sibcoin address"));
+            ui->labelCoinControlChangeLabel->setText(tr("Warning: Invalid Altynclassic address"));
         }
         else // Valid address
         {

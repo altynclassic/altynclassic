@@ -123,7 +123,7 @@ public:
 };
 
 /**
- * Sibcoin RPC command dispatcher.
+ * Altynclassic RPC command dispatcher.
  */
 class CRPCTable
 {

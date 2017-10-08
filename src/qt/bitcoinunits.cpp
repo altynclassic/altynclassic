@@ -46,10 +46,10 @@ QString BitcoinUnits::name(int unit)
     {
         switch(unit)
         {
-            case SIB: return QString("SIB");
-            case mSIB: return QString("mSIB");
-            case uSIB: return QString::fromUtf8("μSIB");
-            case ivans: return QString::fromUtf8("ivans");
+            case SIB: return QString("ALC");
+            case mSIB: return QString("mALC");
+            case uSIB: return QString::fromUtf8("μALC");
+            case ivans: return QString::fromUtf8("altyns");
             default: return QString("???");
         }
     }
@@ -57,10 +57,10 @@ QString BitcoinUnits::name(int unit)
     {
         switch(unit)
         {
-            case SIB: return QString("tSIB");
-            case mSIB: return QString("mtSIB");
-            case uSIB: return QString::fromUtf8("μtSIB");
-            case ivans: return QString::fromUtf8("tivans");
+            case SIB: return QString("tALC");
+            case mSIB: return QString("mtALC");
+            case uSIB: return QString::fromUtf8("μtALC");
+            case ivans: return QString::fromUtf8("taltyns");
             default: return QString("???");
         }
     }
@@ -72,10 +72,10 @@ QString BitcoinUnits::description(int unit)
     {
         switch(unit)
         {
-            case SIB: return QString("Sib");
-            case mSIB: return QString("Milli-Sib (1 / 1,000)");
-            case uSIB: return QString("Micro-Sib (1 / 1,000,000)");
-            case ivans: return QString("Ten Nano-Sib (1 / 100,000,000)");
+            case SIB: return QString("Alc");
+            case mSIB: return QString("Milli-Alc (1 / 1,000)");
+            case uSIB: return QString("Micro-Alc (1 / 1,000,000)");
+            case ivans: return QString("Ten Nano-Alc (1 / 100,000,000)");
             default: return QString("???");
         }
     }
@@ -83,10 +83,10 @@ QString BitcoinUnits::description(int unit)
     {
         switch(unit)
         {
-            case SIB: return QString("TestSibs");
-            case mSIB: return QString("Milli-TestSib (1 / 1,000)");
-            case uSIB: return QString("Micro-TestSib (1 / 1,000,000)");
-            case ivans: return QString("Ten Nano-TestSib (1 / 100,000,000)");
+            case SIB: return QString("TestAlcs");
+            case mSIB: return QString("Milli-TestAlc (1 / 1,000)");
+            case uSIB: return QString("Micro-TestAlc (1 / 1,000,000)");
+            case ivans: return QString("Ten Nano-TestAlc (1 / 100,000,000)");
             default: return QString("???");
         }
     }

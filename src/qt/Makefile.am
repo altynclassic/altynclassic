@@ -5,45 +5,45 @@ AM_CPPFLAGS += -I$(top_srcdir)/src \
   -I$(top_builddir)/src/qt/forms \
   $(PROTOBUF_CFLAGS) \
   $(QR_CFLAGS)
-bin_PROGRAMS = sibcoin-qt
+bin_PROGRAMS = altynclassic-qt
 noinst_LIBRARIES = libdashqt.a
 SUBDIRS = . $(BUILD_TEST_QT)
 DIST_SUBDIRS = . test
 
-# sibcoin qt core #
+# altynclassic qt core #
 #QT_TS = \
-#  locale/sibcoin_bar.ts \
-#  locale/sibcoin_bg.ts \
-#  locale/sibcoin_ca.ts \
-#  locale/sibcoin_cmn.ts \
-#  locale/sibcoin_cs.ts \
-#  locale/sibcoin_da.ts \
-#  locale/sibcoin_de.ts \
-#  locale/sibcoin_el.ts \
-#  locale/sibcoin_en.ts \
-#  locale/sibcoin_eo.ts \
-#  locale/sibcoin_es.ts \
-#  locale/sibcoin_fi.ts \
-#  locale/sibcoin_fr.ts \
-#  locale/sibcoin_hu_HU.ts \
-#  locale/sibcoin_it.ts \
-#  locale/sibcoin_lv_LV.ts \
-#  locale/sibcoin_nb.ts \
-#  locale/sibcoin_nl.ts \
-#  locale/sibcoin_pl.ts \
-#  locale/sibcoin_pt.ts \
-#  locale/sibcoin_pt_BR.ts \
-#  locale/sibcoin_ru.ts \
-#  locale/sibcoin_sk.ts \
-#  locale/sibcoin_sv.ts \
-#  locale/sibcoin_tr.ts \
-#  locale/sibcoin_vi.ts \
-#  locale/sibcoin_zh_CN.ts \
-#  locale/sibcoin_zh_HK.ts
+#  locale/altynclassic_bar.ts \
+#  locale/altynclassic_bg.ts \
+#  locale/altynclassic_ca.ts \
+#  locale/altynclassic_cmn.ts \
+#  locale/altynclassic_cs.ts \
+#  locale/altynclassic_da.ts \
+#  locale/altynclassic_de.ts \
+#  locale/altynclassic_el.ts \
+#  locale/altynclassic_en.ts \
+#  locale/altynclassic_eo.ts \
+#  locale/altynclassic_es.ts \
+#  locale/altynclassic_fi.ts \
+#  locale/altynclassic_fr.ts \
+#  locale/altynclassic_hu_HU.ts \
+#  locale/altynclassic_it.ts \
+#  locale/altynclassic_lv_LV.ts \
+#  locale/altynclassic_nb.ts \
+#  locale/altynclassic_nl.ts \
+#  locale/altynclassic_pl.ts \
+#  locale/altynclassic_pt.ts \
+#  locale/altynclassic_pt_BR.ts \
+#  locale/altynclassic_ru.ts \
+#  locale/altynclassic_sk.ts \
+#  locale/altynclassic_sv.ts \
+#  locale/altynclassic_tr.ts \
+#  locale/altynclassic_vi.ts \
+#  locale/altynclassic_zh_CN.ts \
+#  locale/altynclassic_zh_HK.ts
 
 QT_TS = \
-  locale/sibcoin_en.ts \
-  locale/sibcoin_ru.ts
+  locale/altynclassic_en.ts \
+  locale/altynclassic_ru.ts
 
 
 
@@ -122,13 +122,13 @@ BITCOIN_MM = \
   macnotificationhandler.mm
 
 QT_MOC = \
-  sibcoin.moc \
+  altynclassic.moc \
   intro.moc \
   overviewpage.moc \
   rpcconsole.moc
 
-QT_QRC_CPP = qrc_sibcoin.cpp
-QT_QRC = sibcoin.qrc
+QT_QRC_CPP = qrc_altynclassic.cpp
+QT_QRC = altynclassic.qrc
 
 PROTOBUF_CC = paymentrequest.pb.cc
 PROTOBUF_H = paymentrequest.pb.h
@@ -239,7 +239,7 @@ RES_ICONS = \
 
 
 BITCOIN_QT_CPP = \
-  sibcoin.cpp \
+  altynclassic.cpp \
   bitcoinaddressvalidator.cpp \
   bitcoinamountfield.cpp \
   bitcoingui.cpp \
@@ -313,7 +313,7 @@ RES_CSS = \
   
 RES_MOVIES = $(wildcard res/movies/spinner-*.png)
 
-SIBCOIN_RC = res/sibcoin-qt-res.rc
+ALTYNCLASSIC_RC = res/altynclassic-qt-res.rc
 
 libdashqt_a_CPPFLAGS = $(AM_CPPFLAGS) $(QT_INCLUDES) \
   -I$(top_srcdir)/src/qt/forms $(QT_DBUS_INCLUDES)
@@ -330,23 +330,23 @@ BUILT_SOURCES = $(nodist_libdashqt_a_SOURCES)
 $(QT_MOC): $(PROTOBUF_H)
 $(QT_MOC_CPP): $(PROTOBUF_H)
 
-# sibcoin-qt binary #
-sibcoin_qt_CPPFLAGS = $(AM_CPPFLAGS) $(QT_INCLUDES) \
+# altynclassic-qt binary #
+altynclassic_qt_CPPFLAGS = $(AM_CPPFLAGS) $(QT_INCLUDES) \
   -I$(top_srcdir)/src/qt/forms
-sibcoin_qt_SOURCES = sibcoin.cpp
+altynclassic_qt_SOURCES = altynclassic.cpp
 if TARGET_DARWIN
-  sibcoin_qt_SOURCES += $(BITCOIN_MM)
+  altynclassic_qt_SOURCES += $(BITCOIN_MM)
 endif
 if TARGET_WINDOWS
-  sibcoin_qt_SOURCES += $(SIBCOIN_RC)
+  altynclassic_qt_SOURCES += $(ALTYNCLASSIC_RC)
 endif
-sibcoin_qt_LDADD = libdashqt.a $(LIBBITCOIN_SERVER)
+altynclassic_qt_LDADD = libdashqt.a $(LIBBITCOIN_SERVER)
 if ENABLE_WALLET
-sibcoin_qt_LDADD += $(LIBBITCOIN_WALLET)
+altynclassic_qt_LDADD += $(LIBBITCOIN_WALLET)
 endif
-sibcoin_qt_LDADD += $(LIBBITCOIN_CLI) $(LIBBITCOIN_COMMON) $(LIBLEVELDB) $(LIBMEMENV) \
+altynclassic_qt_LDADD += $(LIBBITCOIN_CLI) $(LIBBITCOIN_COMMON) $(LIBLEVELDB) $(LIBMEMENV) \
   $(BOOST_LIBS) $(QT_LIBS) $(QT_DBUS_LIBS) $(QR_LIBS) $(PROTOBUF_LIBS) $(BDB_LIBS)
-sibcoin_qt_LDFLAGS = $(QT_LDFLAGS)
+altynclassic_qt_LDFLAGS = $(QT_LDFLAGS)
 
 # forms/foo.h -> forms/ui_foo.h
 QT_FORMS_H=$(join $(dir $(QT_FORMS_UI)),$(addprefix ui_, $(notdir $(QT_FORMS_UI:.ui=.h))))
@@ -357,15 +357,15 @@ QT_QM=$(QT_TS:.ts=.qm)
 .PHONY: FORCE
 .SECONDARY: $(QT_QM)
 
-sibcoinstrings.cpp: FORCE
-	$(MAKE) -C $(top_srcdir)/src qt/sibcoinstrings.cpp
+altynclassicstrings.cpp: FORCE
+	$(MAKE) -C $(top_srcdir)/src qt/altynclassicstrings.cpp
 
-translate: sibcoinstrings.cpp $(QT_FORMS_UI) $(QT_FORMS_UI) $(BITCOIN_QT_CPP) $(BITCOIN_QT_H) $(BITCOIN_MM)
+translate: altynclassicstrings.cpp $(QT_FORMS_UI) $(QT_FORMS_UI) $(BITCOIN_QT_CPP) $(BITCOIN_QT_H) $(BITCOIN_MM)
 	@test -n $(LUPDATE) || echo "lupdate is required for updating translations"
 	@QT_SELECT=$(QT_SELECT) $(LUPDATE) $^ -locations relative -no-obsolete -ts locale/sibcoi_en.ts  
 
 $(QT_QRC_CPP): $(QT_QRC) $(QT_QM) $(QT_FORMS_H) $(RES_ICONS) $(RES_IMAGES) $(RES_MOVIES) $(RES_CSS) $(PROTOBUF_H)
-	@cd $(abs_srcdir); test -f $(RCC) && QT_SELECT=$(QT_SELECT) $(RCC) -name sibcoin -o $(abs_builddir)/$@ $< || \
+	@cd $(abs_srcdir); test -f $(RCC) && QT_SELECT=$(QT_SELECT) $(RCC) -name altynclassic -o $(abs_builddir)/$@ $< || \
 	  echo error: could not build $@
 	$(SED) -e '/^\*\*.*Created:/d' $@ > $@.n && mv $@{.n,}
 	$(SED) -e '/^\*\*.*by:/d' $@  > $@.n && mv $@{.n,}

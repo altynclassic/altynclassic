@@ -1,6 +1,6 @@
 // Copyright (c) 2011-2016 The Bitcoin developers
 // Copyright (c) 2014-2017 The Dash Core developers
-// Copyright (c) 2015-2017 The SibCoin developers
+// Copyright (c) 2015-2017 The AltynClassic developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -128,7 +128,7 @@ BitcoinGUI::BitcoinGUI(const PlatformStyle *platformStyle, const NetworkStyle *n
 
     GUIUtil::restoreWindowGeometry("nWindow", QSize(850, 550), this);
 
-    QString windowTitle = tr("Sibcoin Core") + " - ";
+    QString windowTitle = tr("Altynclassic Core") + " - ";
 #ifdef ENABLE_WALLET
     /* if compiled with wallet support, -disablewallet can still disable the wallet */
     enableWallet = !GetBoolArg("-disablewallet", false);
@@ -289,7 +289,7 @@ void BitcoinGUI::createActions()
     tabGroup->addAction(overviewAction);
 
     sendCoinsAction = new QAction(QIcon(":/icons/" + theme + "/send"), tr("&Send"), this);
-    sendCoinsAction->setStatusTip(tr("Send coins to a Sibcoin address"));
+    sendCoinsAction->setStatusTip(tr("Send coins to a Altynclassic address"));
     sendCoinsAction->setToolTip(sendCoinsAction->statusTip());
     sendCoinsAction->setCheckable(true);
 #ifdef Q_OS_MAC
@@ -304,7 +304,7 @@ void BitcoinGUI::createActions()
     sendCoinsMenuAction->setToolTip(sendCoinsMenuAction->statusTip());
 
     receiveCoinsAction = new QAction(QIcon(":/icons/" + theme + "/receiving_addresses"), tr("&Receive"), this);
-    receiveCoinsAction->setStatusTip(tr("Request payments (generates QR codes and sibcoin: URIs)"));
+    receiveCoinsAction->setStatusTip(tr("Request payments (generates QR codes and altynclassic: URIs)"));
     receiveCoinsAction->setToolTip(receiveCoinsAction->statusTip());
     receiveCoinsAction->setCheckable(true);
 #ifdef Q_OS_MAC
@@ -330,7 +330,7 @@ void BitcoinGUI::createActions()
     tabGroup->addAction(historyAction);
 
     goodsAction = new QAction(QIcon(":/icons/shopping_cart"), tr("&Goods&&&Services"), this);
-    goodsAction->setStatusTip(tr("Show links to services that accept sibcoins"));
+    goodsAction->setStatusTip(tr("Show links to services that accept altynclassics"));
     goodsAction->setToolTip(goodsAction->statusTip());
     goodsAction->setCheckable(true);
 #ifdef Q_OS_MAC
@@ -379,15 +379,15 @@ void BitcoinGUI::createActions()
     quitAction->setStatusTip(tr("Quit application"));
     quitAction->setShortcut(QKeySequence(Qt::CTRL + Qt::Key_Q));
     quitAction->setMenuRole(QAction::QuitRole);
-    aboutAction = new QAction(QIcon(":/icons/" + theme + "/about"), tr("&About Sibcoin Core"), this);
-    aboutAction->setStatusTip(tr("Show information about Sibcoin Core"));
+    aboutAction = new QAction(QIcon(":/icons/" + theme + "/about"), tr("&About Altynclassic Core"), this);
+    aboutAction->setStatusTip(tr("Show information about Altynclassic Core"));
     aboutAction->setMenuRole(QAction::AboutRole);
     aboutAction->setEnabled(false);
     aboutQtAction = new QAction(QIcon(":/icons/" + theme + "/about_qt"), tr("About &Qt"), this);
     aboutQtAction->setStatusTip(tr("Show information about Qt"));
     aboutQtAction->setMenuRole(QAction::AboutQtRole);
     optionsAction = new QAction(QIcon(":/icons/" + theme + "/options"), tr("&Options..."), this);
-    optionsAction->setStatusTip(tr("Modify configuration options for Sibcoin Core"));
+    optionsAction->setStatusTip(tr("Modify configuration options for Altynclassic Core"));
     optionsAction->setMenuRole(QAction::PreferencesRole);
     optionsAction->setEnabled(false);
     toggleHideAction = new QAction(QIcon(":/icons/" + theme + "/about"), tr("&Show / Hide"), this);
@@ -404,9 +404,9 @@ void BitcoinGUI::createActions()
     unlockWalletAction->setToolTip(tr("Unlock wallet"));
     lockWalletAction = new QAction(tr("&Lock Wallet"), this);
     signMessageAction = new QAction(QIcon(":/icons/" + theme + "/edit"), tr("Sign &message..."), this);
-    signMessageAction->setStatusTip(tr("Sign messages with your Sibcoin addresses to prove you own them"));
+    signMessageAction->setStatusTip(tr("Sign messages with your Altynclassic addresses to prove you own them"));
     verifyMessageAction = new QAction(QIcon(":/icons/" + theme + "/transaction_0"), tr("&Verify message..."), this);
-    verifyMessageAction->setStatusTip(tr("Verify messages to ensure they were signed with specified Sibcoin addresses"));
+    verifyMessageAction->setStatusTip(tr("Verify messages to ensure they were signed with specified Altynclassic addresses"));
 
     openInfoAction = new QAction(QApplication::style()->standardIcon(QStyle::SP_MessageBoxInformation), tr("&Information"), this);
     openInfoAction->setStatusTip(tr("Show diagnostic information"));
@@ -436,27 +436,27 @@ void BitcoinGUI::createActions()
     usedReceivingAddressesAction = new QAction(QIcon(":/icons/" + theme + "/address-book"), tr("&Receiving addresses..."), this);
     usedReceivingAddressesAction->setStatusTip(tr("Show the list of used receiving addresses and labels"));
 
-    genAndPrintAddressesAction = new QAction(QIcon(":/icons/cash_icon"), tr("&Print sibcoins..."), this);
+    genAndPrintAddressesAction = new QAction(QIcon(":/icons/cash_icon"), tr("&Print altynclassics..."), this);
     genAndPrintAddressesAction->setIconVisibleInMenu(true);
     genAndPrintAddressesAction->setStatusTip(tr("Generate address and print"));
 
-    loadFromPaperAction = new QAction(QIcon(":/icons/import"), tr("&Load sibcoins..."), this);
+    loadFromPaperAction = new QAction(QIcon(":/icons/import"), tr("&Load altynclassics..."), this);
     loadFromPaperAction->setIconVisibleInMenu(true);
-    loadFromPaperAction->setStatusTip(tr("Load sibcoins from paper"));
+    loadFromPaperAction->setStatusTip(tr("Load altynclassics from paper"));
     
     openAction = new QAction(QApplication::style()->standardIcon(QStyle::SP_DirOpenIcon), tr("Open &URI..."), this);
-    openAction->setStatusTip(tr("Open a sibcoin: URI or payment request"));
+    openAction->setStatusTip(tr("Open a altynclassic: URI or payment request"));
 
     showHelpMessageAction = new QAction(QApplication::style()->standardIcon(QStyle::SP_MessageBoxInformation), tr("&Command-line options"), this);
     showHelpMessageAction->setMenuRole(QAction::NoRole);
-    showHelpMessageAction->setStatusTip(tr("Show the Sibcoin Core help message to get a list with possible Sibcoin Core command-line options"));
+    showHelpMessageAction->setStatusTip(tr("Show the Altynclassic Core help message to get a list with possible Altynclassic Core command-line options"));
 
     showPrivateSendHelpAction = new QAction(QApplication::style()->standardIcon(QStyle::SP_MessageBoxInformation), tr("&PrivateSend information"), this);
     showPrivateSendHelpAction->setMenuRole(QAction::NoRole);
     showPrivateSendHelpAction->setStatusTip(tr("Show the PrivateSend basic information"));
 
-    showHelpSibcoinAction = new QAction(QApplication::style()->standardIcon(QStyle::SP_MessageBoxInformation), tr("&Howto"), this);
-    showHelpSibcoinAction->setStatusTip(tr("How to use Sibcoins"));
+    showHelpAltynclassicAction = new QAction(QApplication::style()->standardIcon(QStyle::SP_MessageBoxInformation), tr("&Howto"), this);
+    showHelpAltynclassicAction->setStatusTip(tr("How to use Altynclassics"));
 
     
     connect(quitAction, SIGNAL(triggered()), qApp, SLOT(quit()));
@@ -485,7 +485,7 @@ void BitcoinGUI::createActions()
     // prevents an open debug window from becoming stuck/unusable on client shutdown
     connect(quitAction, SIGNAL(triggered()), rpcConsole, SLOT(hide()));
 
-    connect(showHelpSibcoinAction, SIGNAL(triggered()), this, SLOT(showHelpSibcoinClicked()));
+    connect(showHelpAltynclassicAction, SIGNAL(triggered()), this, SLOT(showHelpAltynclassicClicked()));
 #ifdef ENABLE_WALLET
     if(walletFrame)
     {
@@ -564,7 +564,7 @@ void BitcoinGUI::createMenuBar()
     }
 
     QMenu *help = appMenuBar->addMenu(tr("&Help"));
-    help->addAction(showHelpSibcoinAction);
+    help->addAction(showHelpAltynclassicAction);
     help->addAction(showHelpMessageAction);
     help->addAction(showPrivateSendHelpAction);
     help->addSeparator();
@@ -735,7 +735,7 @@ void BitcoinGUI::setWalletActionsEnabled(bool enabled)
 void BitcoinGUI::createTrayIcon(const NetworkStyle *networkStyle)
 {
     trayIcon = new QSystemTrayIcon(this);
-    QString toolTip = tr("Sibcoin Core client") + " " + networkStyle->getTitleAddText();
+    QString toolTip = tr("Altynclassic Core client") + " " + networkStyle->getTitleAddText();
     trayIcon->setToolTip(toolTip);
     trayIcon->setIcon(networkStyle->getTrayAndWindowIcon());
     trayIcon->show();
@@ -866,9 +866,9 @@ void BitcoinGUI::showPrivateSendHelpClicked()
     dlg.exec();
 }
 
-void BitcoinGUI::showHelpSibcoinClicked()
+void BitcoinGUI::showHelpAltynclassicClicked()
 {
-    HelpSibcoinDialog *help = new HelpSibcoinDialog(this);
+    HelpAltynclassicDialog *help = new HelpAltynclassicDialog(this);
     help->setAttribute(Qt::WA_DeleteOnClose);
     help->show();
 }
@@ -948,7 +948,7 @@ void BitcoinGUI::setNumConnections(int count)
     }
     QIcon connectionItem = QIcon(icon).pixmap(STATUSBAR_ICONSIZE,STATUSBAR_ICONSIZE);
     labelConnectionsIcon->setIcon(connectionItem);
-    labelConnectionsIcon->setToolTip(tr("%n active connection(s) to Sibcoin network", "", count));
+    labelConnectionsIcon->setToolTip(tr("%n active connection(s) to Altynclassic network", "", count));
 }
 
 void BitcoinGUI::setNumBlocks(int count, const QDateTime& blockDate, double nVerificationProgress)
@@ -1103,7 +1103,7 @@ void BitcoinGUI::setAdditionalDataSyncProgress(double nSyncProgress)
 
 void BitcoinGUI::message(const QString &title, const QString &message, unsigned int style, bool *ret)
 {
-    QString strTitle = tr("Sibcoin Core"); // default title
+    QString strTitle = tr("Altynclassic Core"); // default title
     // Default to information icon
     int nMBoxIcon = QMessageBox::Information;
     int nNotifyIcon = Notificator::Information;
@@ -1129,7 +1129,7 @@ void BitcoinGUI::message(const QString &title, const QString &message, unsigned 
             break;
         }
     }
-    // Append title to "Sibcoin - "
+    // Append title to "Altynclassic - "
     if (!msgType.isEmpty())
         strTitle += " - " + msgType;
 

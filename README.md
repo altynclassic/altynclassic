@@ -1,4 +1,4 @@
-Sibcoin Core staging tree
+Altynclassic Core staging tree
 ===============================
 
 Copyright (c) 2009-2016 Bitcoin Core Developers
@@ -7,14 +7,16 @@ Copyright (c) 2014-2017 Dash Core Developers
 
 Copyright (c) 2015-2017 Sibcoin Core Developers
 
+Copyright (c) 2017 Altynclassic Core Developers
 
-What is Sibcoin?
+
+What is Altynclassic?
 ----------------
 
-Sibcoin is an experimental new digital currency that enables anonymous, instant
-payments to anyone, anywhere in the world. Sibcoin uses peer-to-peer technology
+Altynclassic is an experimental new digital currency that enables anonymous, instant
+payments to anyone, anywhere in the world. Altynclassic uses peer-to-peer technology
 to operate with no central authority: managing transactions and issuing money
-are carried out collectively by the network. Sibcoin Core is the name of open
+are carried out collectively by the network. Altynclassic Core is the name of open
 source software which enables the use of this currency.
 
 
@@ -28,7 +30,7 @@ information or see http://opensource.org/licenses/MIT.
 Building process
 -----------------
 
-**compiling Sibcoin from git**
+**compiling Altynclassic from git**
 
 Use the autogen script to prepare the build environment.
 
@@ -60,7 +62,7 @@ to see it.
 
 **testnet and regtest modes**
 
-Run with the -testnet option to run with "play sibcoins" on the test network, if you
+Run with the -testnet option to run with "play altynclassics" on the test network, if you
 are testing multi-machine code that needs to operate across the internet.
 
 If you are testing something that can run on one machine, run with the -regtest option.

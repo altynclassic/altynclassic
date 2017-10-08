@@ -6,7 +6,7 @@
 #define BITCOIN_QT_BITCOINGUI_H
 
 #if defined(HAVE_CONFIG_H)
-#include "config/sibcoin-config.h"
+#include "config/altynclassic-config.h"
 #endif
 
 #include "amount.h"
@@ -131,7 +131,7 @@ private:
     QAction *showHelpMessageAction;
     QAction *showPrivateSendHelpAction;
 
-    QAction *showHelpSibcoinAction;
+    QAction *showHelpAltynclassicAction;
     
     QSystemTrayIcon *trayIcon;
     QMenu *trayIconMenu;
@@ -251,7 +251,7 @@ private Q_SLOTS:
     void showHelpMessageClicked();
     /** Show PrivateSend help message dialog */
     void showPrivateSendHelpClicked();
-    void showHelpSibcoinClicked();
+    void showHelpAltynclassicClicked();
 #ifndef Q_OS_MAC
     /** Handle tray icon clicked */
     void trayIconActivated(QSystemTrayIcon::ActivationReason reason);

@@ -56,15 +56,15 @@ TESTS =
 BENCHMARKS =
 
 if BUILD_BITCOIND
-  bin_PROGRAMS += sibcoind
+  bin_PROGRAMS += altynclassicd
 endif
 
 if BUILD_BITCOIN_UTILS
-  bin_PROGRAMS += sibcoin-cli sibcoin-tx
+  bin_PROGRAMS += altynclassic-cli altynclassic-tx
 endif
 
 .PHONY: FORCE check-symbols check-security
-# sibcoin core #
+# altynclassic core #
 BITCOIN_CORE_H = \
   activemasternode.h \
   addressindex.h \
@@ -194,7 +194,7 @@ obj/build.h: FORCE
 	  $(abs_top_srcdir)
 libbitcoin_util_a-clientversion.$(OBJEXT): obj/build.h
 
-# server: shared between sibcoind and sibcoin-qt
+# server: shared between altynclassicd and altynclassic-qt
 libbitcoin_server_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES) $(MINIUPNPC_CPPFLAGS) $(EVENT_CFLAGS) $(EVENT_PTHREADS_CFLAGS)
 libbitcoin_server_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
 libbitcoin_server_a_SOURCES = \
@@ -253,7 +253,7 @@ libbitcoin_zmq_a_SOURCES = \
 endif
 
 
-# wallet: shared between sibcoind and sibcoin-qt, but only linked
+# wallet: shared between altynclassicd and altynclassic-qt, but only linked
 # when wallet enabled
 libbitcoin_wallet_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
 libbitcoin_wallet_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
@@ -324,7 +324,7 @@ crypto_libbitcoin_crypto_a_SOURCES = \
   crypto/sha512.cpp \
   crypto/sha512.h
 
-# common: shared between sibcoind, and sibcoin-qt and non-server tools
+# common: shared between altynclassicd, and altynclassic-qt and non-server tools
 libbitcoin_common_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
 libbitcoin_common_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
 libbitcoin_common_a_SOURCES = \
@@ -381,7 +381,7 @@ if GLIBC_BACK_COMPAT
 libbitcoin_util_a_SOURCES += compat/glibc_compat.cpp
 endif
 
-# cli: shared between sibcoin-cli and sibcoin-qt
+# cli: shared between altynclassic-cli and altynclassic-qt
 libbitcoin_cli_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
 libbitcoin_cli_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
 libbitcoin_cli_a_SOURCES = \
@@ -392,16 +392,16 @@ nodist_libbitcoin_util_a_SOURCES = $(srcdir)/obj/build.h
 #
 
 # bitcoind binary #
-sibcoind_SOURCES = sibcoind.cpp
-sibcoind_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
-sibcoind_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-sibcoind_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
+altynclassicd_SOURCES = altynclassicd.cpp
+altynclassicd_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
+altynclassicd_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+altynclassicd_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
 
 if TARGET_WINDOWS
-sibcoind_SOURCES += sibcoind-res.rc
+altynclassicd_SOURCES += altynclassicd-res.rc
 endif
 
-sibcoind_LDADD = \
+altynclassicd_LDADD = \
   $(LIBBITCOIN_SERVER) \
   $(LIBBITCOIN_COMMON) \
   $(LIBUNIVALUE) \
@@ -412,50 +412,50 @@ sibcoind_LDADD = \
   $(LIBSECP256K1)
 
 if ENABLE_ZMQ
-sibcoind_LDADD += $(LIBBITCOIN_ZMQ) $(ZMQ_LIBS)
+altynclassicd_LDADD += $(LIBBITCOIN_ZMQ) $(ZMQ_LIBS)
 endif
 
 if ENABLE_WALLET
-sibcoind_LDADD += libbitcoin_wallet.a
+altynclassicd_LDADD += libbitcoin_wallet.a
 endif
 
-sibcoind_LDADD += $(BOOST_LIBS) $(BDB_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(MINIUPNPC_LIBS) $(EVENT_PTHREADS_LIBS) $(EVENT_LIBS)
+altynclassicd_LDADD += $(BOOST_LIBS) $(BDB_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(MINIUPNPC_LIBS) $(EVENT_PTHREADS_LIBS) $(EVENT_LIBS)
 
-# sibcoin-cli binary #
-sibcoin_cli_SOURCES = sibcoin-cli.cpp
-sibcoin_cli_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES) $(EVENT_CFLAGS)
-sibcoin_cli_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-sibcoin_cli_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
+# altynclassic-cli binary #
+altynclassic_cli_SOURCES = altynclassic-cli.cpp
+altynclassic_cli_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES) $(EVENT_CFLAGS)
+altynclassic_cli_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+altynclassic_cli_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
 
 if TARGET_WINDOWS
-sibcoin_cli_SOURCES += sibcoin-cli-res.rc
+altynclassic_cli_SOURCES += altynclassic-cli-res.rc
 endif
 
-sibcoin_cli_LDADD = \
+altynclassic_cli_LDADD = \
   $(LIBBITCOIN_CLI) \
   $(LIBUNIVALUE) \
   $(LIBBITCOIN_UTIL)
-sibcoin_cli_LDADD += $(BOOST_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(EVENT_LIBS)
+altynclassic_cli_LDADD += $(BOOST_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(EVENT_LIBS)
 #
 
-# sibcoin-tx binary #
-sibcoin_tx_SOURCES = sibcoin-tx.cpp
-sibcoin_tx_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
-sibcoin_tx_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-sibcoin_tx_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
+# altynclassic-tx binary #
+altynclassic_tx_SOURCES = altynclassic-tx.cpp
+altynclassic_tx_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
+altynclassic_tx_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+altynclassic_tx_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
 
 if TARGET_WINDOWS
-sibcoin_tx_SOURCES += sibcoin-tx-res.rc
+altynclassic_tx_SOURCES += altynclassic-tx-res.rc
 endif
 
-sibcoin_tx_LDADD = \
+altynclassic_tx_LDADD = \
   $(LIBUNIVALUE) \
   $(LIBBITCOIN_COMMON) \
   $(LIBBITCOIN_UTIL) \
   $(LIBBITCOIN_CRYPTO) \
   $(LIBSECP256K1)
 
-sibcoin_tx_LDADD += $(BOOST_LIBS) $(CRYPTO_LIBS)
+altynclassic_tx_LDADD += $(BOOST_LIBS) $(CRYPTO_LIBS)
 #
 
 # bitcoinconsensus library #
